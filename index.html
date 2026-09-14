@@ -3,14 +3,666 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>He Wang</title>
+  <meta name="description" content="He Wang, Intelligent Sensing Engineering undergraduate at Shanghai Jiao Tong University.">
+  <title>He Wang | Intelligent Sensing Engineering</title>
+  <style>
+    :root {
+      --ink: #151817;
+      --muted: #5d6561;
+      --paper: #f7f8f5;
+      --white: #ffffff;
+      --line: #d9dedb;
+      --red: #a51c30;
+      --red-dark: #7f1525;
+      --green: #176b5b;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: rgba(165, 28, 48, 0.45);
+      text-underline-offset: 4px;
+    }
+
+    a:hover {
+      color: var(--red);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin-inline: auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(217, 222, 219, 0.85);
+      background: rgba(247, 248, 245, 0.94);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .hero {
+      min-height: min(720px, calc(100svh - 112px));
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
+      align-items: center;
+      gap: clamp(44px, 8vw, 100px);
+      padding-block: 72px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--red);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 24px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.4rem, 7vw, 6.5rem);
+      font-weight: 500;
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin-bottom: 32px;
+      color: #3f4642;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border: 1px solid var(--ink);
+      border-radius: 4px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+    }
+
+    .button-primary {
+      color: var(--white);
+      border-color: var(--red);
+      background: var(--red);
+    }
+
+    .button-primary:hover {
+      color: var(--white);
+      border-color: var(--red-dark);
+      background: var(--red-dark);
+    }
+
+    .button-secondary:hover {
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .portrait-wrap {
+      position: relative;
+      justify-self: end;
+      width: min(100%, 340px);
+    }
+
+    .portrait-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 18px -18px -18px 18px;
+      z-index: -1;
+      border: 1px solid var(--red);
+    }
+
+    .portrait {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid var(--line);
+      background: #dfe9eb;
+    }
+
+    .section-band {
+      border-top: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .section-band.alt {
+      background: var(--paper);
+    }
+
+    .section {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.38fr) minmax(0, 1fr);
+      gap: clamp(40px, 8vw, 120px);
+      padding-block: clamp(72px, 9vw, 116px);
+    }
+
+    .section-label {
+      position: sticky;
+      top: 96px;
+      align-self: start;
+    }
+
+    .section-number {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--red);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 720px;
+      color: #38403c;
+      font-size: 1.12rem;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin: 36px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .fact {
+      padding: 22px 20px 22px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .fact dt {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .fact dd {
+      margin: 6px 0 0;
+      font-weight: 650;
+    }
+
+    .work-item {
+      padding-block: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .work-item:first-child {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .status.completed {
+      color: var(--red);
+    }
+
+    .work-item p {
+      max-width: 760px;
+      color: var(--muted);
+    }
+
+    .project-points {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 28px;
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .project-points li {
+      position: relative;
+      padding-left: 18px;
+    }
+
+    .project-points li::before {
+      content: "";
+      position: absolute;
+      top: 0.72em;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+    }
+
+    .learning-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .learning-item {
+      min-height: 138px;
+      padding: 24px;
+      background: var(--white);
+    }
+
+    .learning-item strong {
+      display: block;
+      margin-bottom: 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+      font-weight: 500;
+    }
+
+    .learning-item span {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .campus-photo {
+      width: 100%;
+      aspect-ratio: 16 / 8;
+      object-fit: cover;
+      object-position: center 47%;
+      border: 1px solid var(--line);
+    }
+
+    figcaption {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .contact-band {
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .contact-band .section {
+      align-items: end;
+    }
+
+    .contact-band .section-label {
+      position: static;
+    }
+
+    .contact-band .section-number {
+      color: #eab9c0;
+    }
+
+    .contact-copy {
+      max-width: 670px;
+      margin-bottom: 32px;
+      color: #cdd2cf;
+      font-size: 1.08rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 28px;
+    }
+
+    .contact-links a {
+      color: var(--white);
+      font-weight: 700;
+      text-decoration-color: #eab9c0;
+    }
+
+    footer {
+      padding: 24px 0;
+      color: #aeb5b1;
+      border-top: 1px solid #343a37;
+      background: var(--ink);
+      font-size: 0.84rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max-width));
+      }
+
+      .nav-links a:not(:last-child) {
+        display: none;
+      }
+
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 44px;
+        padding-block: 56px 76px;
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 16vw, 4.8rem);
+      }
+
+      .portrait-wrap {
+        justify-self: start;
+        width: min(82%, 300px);
+      }
+
+      .section {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding-block: 72px;
+      }
+
+      .section-label {
+        position: static;
+      }
+
+      .facts,
+      .project-points,
+      .learning-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .campus-photo {
+        aspect-ratio: 4 / 3;
+      }
+
+      .footer-row {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .button {
+        transition: none;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hi, I'm He Wang</h1>
-  <p>
-    Undergraduate student in Intelligent Sensing Engineering
-    at Shanghai Jiao Tong University.
-  </p>
-  <a href="https://github.com/chiyeeheh">View my GitHub profile</a>
+  <header class="site-header">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#top">He Wang</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="container hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Intelligent Sensing Engineering · SJTU</p>
+        <h1 id="hero-title">He Wang</h1>
+        <p class="hero-copy">
+          Undergraduate at Shanghai Jiao Tong University, exploring intelligent sensing,
+          robotics, control, and human-machine interaction through hands-on engineering.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">Explore my work</a>
+          <a class="button button-secondary" href="mailto:wanghe7726@163.com">Email me</a>
+        </div>
+      </div>
+      <div class="portrait-wrap">
+        <img
+          class="portrait"
+          src="https://raw.githubusercontent.com/chiyeeheh/chiyeeheh/main/images/profile.png"
+          alt="Portrait of He Wang"
+        >
+      </div>
+    </section>
+
+    <div class="section-band" id="about">
+      <section class="container section" aria-labelledby="about-title">
+        <div class="section-label">
+          <span class="section-number">01</span>
+          <h2 id="about-title">About</h2>
+        </div>
+        <div>
+          <p class="lead">
+            I am a 2026-cohort undergraduate in the School of Automation and Intelligent
+            Sensing at Shanghai Jiao Tong University, majoring in Intelligent Sensing Engineering.
+          </p>
+          <p>
+            I am building a foundation across sensing, mechanical systems, and intelligent
+            interaction. My long-term goal is to connect rigorous theory with practical
+            engineering and develop systems that perceive and respond to the physical world.
+          </p>
+          <dl class="facts">
+            <div class="fact">
+              <dt>University</dt>
+              <dd>Shanghai Jiao Tong University</dd>
+            </div>
+            <div class="fact">
+              <dt>School</dt>
+              <dd>Automation and Intelligent Sensing</dd>
+            </div>
+            <div class="fact">
+              <dt>Major</dt>
+              <dd>Intelligent Sensing Engineering</dd>
+            </div>
+            <div class="fact">
+              <dt>Location</dt>
+              <dd>Shanghai, China</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+    </div>
+
+    <div class="section-band alt" id="work">
+      <section class="container section" aria-labelledby="work-title">
+        <div class="section-label">
+          <span class="section-number">02</span>
+          <h2 id="work-title">Selected Work</h2>
+        </div>
+        <div>
+          <article class="work-item">
+            <div class="status">In progress</div>
+            <h3>Mechanical Decoupling of a da Vinci Robotic Gripper</h3>
+            <p>
+              Studying the gripper's mechanical structure and coupled motions, with a focus
+              on understanding its transmission relationships and developing a clear
+              mechanical decoupling approach.
+            </p>
+          </article>
+
+          <article class="work-item">
+            <div class="status completed">Completed</div>
+            <h3>Haptic Perception and Human-Machine Interaction</h3>
+            <p>
+              A haptic interaction project built around the Phantom Omni device and a virtual
+              paper-writing environment.
+            </p>
+            <ul class="project-points">
+              <li>Acquired pose data and interaction states in real time.</li>
+              <li>Collected end-effector motion information.</li>
+              <li>Simulated contact with a virtual writing plane.</li>
+              <li>Generated constraint forces for basic haptic feedback.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <div class="section-band">
+      <section class="container section" aria-labelledby="learning-title">
+        <div class="section-label">
+          <span class="section-number">03</span>
+          <h2 id="learning-title">Learning Direction</h2>
+        </div>
+        <div>
+          <p class="lead">
+            I am strengthening the theoretical tools behind intelligent systems while
+            continuing to learn through implementation.
+          </p>
+          <div class="learning-grid">
+            <div class="learning-item">
+              <strong>Control</strong>
+              <span>Modeling, system dynamics, and control strategies.</span>
+            </div>
+            <div class="learning-item">
+              <strong>Algorithms</strong>
+              <span>Computational thinking and reliable problem-solving methods.</span>
+            </div>
+            <div class="learning-item">
+              <strong>Perception</strong>
+              <span>Sensing principles, signal interpretation, and intelligent perception.</span>
+            </div>
+            <div class="learning-item">
+              <strong>Robotics</strong>
+              <span>Integrating mechanics, sensing, computation, and interaction.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="section-band alt">
+      <section class="container section" aria-labelledby="campus-title">
+        <div class="section-label">
+          <span class="section-number">04</span>
+          <h2 id="campus-title">Campus Life</h2>
+        </div>
+        <figure>
+          <img
+            class="campus-photo"
+            src="https://raw.githubusercontent.com/chiyeeheh/chiyeeheh/main/images/sjtu-event.jpg"
+            alt="He Wang at Shanghai Jiao Tong University"
+          >
+          <figcaption>Shanghai Jiao Tong University · Shanghai, China</figcaption>
+        </figure>
+      </section>
+    </div>
+
+    <div class="contact-band" id="contact">
+      <section class="container section" aria-labelledby="contact-title">
+        <div class="section-label">
+          <span class="section-number">05</span>
+          <h2 id="contact-title">Contact</h2>
+        </div>
+        <div>
+          <p class="contact-copy">
+            I am always interested in learning from new engineering problems and exchanging
+            ideas about sensing, control, robotics, and human-machine interaction.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:wanghe7726@163.com">wanghe7726@163.com</a>
+            <a href="https://github.com/chiyeeheh" target="_blank" rel="noreferrer">GitHub · @chiyeeheh</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© 2026 He Wang</span>
+      <span>Intelligent Sensing Engineering · SJTU</span>
+    </div>
+  </footer>
 </body>
 </html>
